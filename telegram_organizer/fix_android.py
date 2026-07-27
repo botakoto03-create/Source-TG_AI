@@ -1,12 +1,6 @@
-"""
-Run this once in Termux to fix the Android path scanning.
-  python3 fix_android.py
-"""
 from pathlib import Path
-
 BASE = Path("/data/data/com.termux/files/home/Source-TG_AI/telegram_organizer")
 
-# ── 1. Rewrite platform_utils.py ────────────────────────────────────────────
 (BASE / "platform_utils.py").write_text('''\
 """
 Platform-specific helpers: Windows MTP via PowerShell, Android root discovery.
@@ -220,7 +214,6 @@ def find_android_cache():
 ''')
 print("platform_utils.py  OK")
 
-# ── 2. Rewrite main.py ───────────────────────────────────────────────────────
 (BASE / "main.py").write_text('''\
 """
 Main entry point: interactive CLI that organises Telegram cache media.

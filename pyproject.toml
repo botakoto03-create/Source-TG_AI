@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "Source-Ai"
+version         = "1.0.0"
+description     = "Organise Telegram cache media into sorted image/video folders"
+readme          = "README.md"
+license         = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies    = []
+
+[project.scripts]
+telegram-organizer = "telegram_organizer.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["telegram_organizer*"]
+
+[tool.setuptools.package-data]
+telegram_organizer = ["py.typed"]
